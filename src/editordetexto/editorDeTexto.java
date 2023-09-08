@@ -66,18 +66,18 @@ public class editorDeTexto extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         combo_tipodeletra = new javax.swing.JComboBox<>();
         combo_tamaño = new javax.swing.JComboBox<>();
-        negrita_btn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         delado_btn = new javax.swing.JButton();
         subrayado_btn = new javax.swing.JButton();
         resaltador_btn = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         colorletra_btn = new javax.swing.JButton();
-        jToolBar2 = new javax.swing.JToolBar();
         abrirarch_btn = new javax.swing.JButton();
         guardararch_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -86,7 +86,7 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(tp_texto);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 121, 909, 494));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 909, 494));
 
         jToolBar1.setRollover(true);
 
@@ -105,16 +105,17 @@ public class editorDeTexto extends javax.swing.JFrame {
         });
         jToolBar1.add(combo_tamaño);
 
-        negrita_btn.setMaximumSize(new java.awt.Dimension(10, 8));
-        negrita_btn.setMinimumSize(new java.awt.Dimension(10, 8));
-        negrita_btn.setPreferredSize(new java.awt.Dimension(10, 8));
-        negrita_btn.setRequestFocusEnabled(false);
-        negrita_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/negrita.png"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(70, 8));
+        jLabel3.setMinimumSize(new java.awt.Dimension(70, 8));
+        jLabel3.setPreferredSize(new java.awt.Dimension(40, 30));
+        jLabel3.setRequestFocusEnabled(false);
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                negrita_btnMouseClicked(evt);
+                jLabel3MouseClicked(evt);
             }
         });
-        jToolBar1.add(negrita_btn);
+        jToolBar1.add(jLabel3);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -123,9 +124,10 @@ public class editorDeTexto extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(7, 0));
         jToolBar1.add(jSeparator1);
 
+        delado_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/Cursiva.png"))); // NOI18N
         delado_btn.setMaximumSize(new java.awt.Dimension(10, 8));
         delado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
-        delado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        delado_btn.setPreferredSize(new java.awt.Dimension(40, 30));
         delado_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 delado_btnMouseClicked(evt);
@@ -133,11 +135,12 @@ public class editorDeTexto extends javax.swing.JFrame {
         });
         jToolBar1.add(delado_btn);
 
+        subrayado_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/Subrayado.png"))); // NOI18N
         subrayado_btn.setFocusable(false);
         subrayado_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         subrayado_btn.setMaximumSize(new java.awt.Dimension(10, 8));
         subrayado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
-        subrayado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        subrayado_btn.setPreferredSize(new java.awt.Dimension(40, 30));
         subrayado_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         subrayado_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,11 +149,12 @@ public class editorDeTexto extends javax.swing.JFrame {
         });
         jToolBar1.add(subrayado_btn);
 
+        resaltador_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/fondo.png"))); // NOI18N
         resaltador_btn.setFocusable(false);
         resaltador_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         resaltador_btn.setMaximumSize(new java.awt.Dimension(10, 8));
         resaltador_btn.setMinimumSize(new java.awt.Dimension(10, 8));
-        resaltador_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        resaltador_btn.setPreferredSize(new java.awt.Dimension(40, 30));
         resaltador_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         resaltador_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,9 +164,9 @@ public class editorDeTexto extends javax.swing.JFrame {
         jToolBar1.add(resaltador_btn);
         jToolBar1.add(jSeparator2);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 43, 667, 66));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 667, 66));
 
-        colorletra_btn.setText("Color");
+        colorletra_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/letra.png"))); // NOI18N
         colorletra_btn.setMaximumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setMinimumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setPreferredSize(new java.awt.Dimension(76, 11));
@@ -171,34 +175,44 @@ public class editorDeTexto extends javax.swing.JFrame {
                 colorletra_btnMouseClicked(evt);
             }
         });
-        getContentPane().add(colorletra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 43, 84, 31));
+        getContentPane().add(colorletra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 40, 31));
 
-        jToolBar2.setRollover(true);
-        getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 43, 90, 40));
-
-        abrirarch_btn.setText("Abrir Archivo");
+        abrirarch_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/abrir.png"))); // NOI18N
         abrirarch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 abrirarch_btnMouseClicked(evt);
             }
         });
-        getContentPane().add(abrirarch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 43, 124, 33));
+        getContentPane().add(abrirarch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 40, 33));
 
-        guardararch_btn.setText("Guardar");
+        guardararch_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editordetexto/guardar.png"))); // NOI18N
         guardararch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 guardararch_btnMouseClicked(evt);
             }
         });
-        getContentPane().add(guardararch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 82, 124, 27));
+        getContentPane().add(guardararch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 40, 27));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Size");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 37, -1));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 37, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Font");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 37, -1));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 37, -1));
+
+        jLabel4.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("DAAR");
+        jLabel4.setOpaque(true);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,20 +252,6 @@ public class editorDeTexto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_colorletra_btnMouseClicked
-
-    private void negrita_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_negrita_btnMouseClicked
-        // TODO add your handling code here:
-        try {
-            StyleConstants.setBold(estilo, true);
-
-            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
-                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
-                    tp_texto.getStyle("miEstilo"),
-                    true);
-        } catch (Exception ex) {
-        }
-
-    }//GEN-LAST:event_negrita_btnMouseClicked
 
     private void delado_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delado_btnMouseClicked
         // TODO add your handling code here:
@@ -389,6 +389,18 @@ public class editorDeTexto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_abrirarch_btnMouseClicked
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+               try {
+            StyleConstants.setBold(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -433,13 +445,13 @@ public class editorDeTexto extends javax.swing.JFrame {
     private javax.swing.JButton guardararch_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JToolBar jToolBar2;
-    private javax.swing.JButton negrita_btn;
     private javax.swing.JButton resaltador_btn;
     private javax.swing.JButton subrayado_btn;
     private javax.swing.JTextPane tp_texto;
