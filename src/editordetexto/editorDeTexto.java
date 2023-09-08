@@ -30,18 +30,18 @@ public class editorDeTexto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jToolBar1 = new javax.swing.JToolBar();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        combo_tipodeletra = new javax.swing.JComboBox<>();
+        combo_tamaño = new javax.swing.JComboBox<>();
+        negrita_btn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        delado_btn = new javax.swing.JButton();
+        subrayado_btn = new javax.swing.JButton();
+        resaltador_btn = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        jButton5 = new javax.swing.JButton();
+        colorletra_btn = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        abrirarch_btn = new javax.swing.JButton();
+        guardararch_btn = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -52,16 +52,16 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jToolBar1.add(jComboBox2);
+        jToolBar1.add(combo_tipodeletra);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "18", "24", "36", "48", "60", "72" }));
-        jToolBar1.add(jComboBox3);
+        combo_tamaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "18", "24", "36", "48", "60", "72" }));
+        jToolBar1.add(combo_tamaño);
 
-        jButton1.setMaximumSize(new java.awt.Dimension(10, 8));
-        jButton1.setMinimumSize(new java.awt.Dimension(10, 8));
-        jButton1.setPreferredSize(new java.awt.Dimension(10, 8));
-        jButton1.setRequestFocusEnabled(false);
-        jToolBar1.add(jButton1);
+        negrita_btn.setMaximumSize(new java.awt.Dimension(10, 8));
+        negrita_btn.setMinimumSize(new java.awt.Dimension(10, 8));
+        negrita_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        negrita_btn.setRequestFocusEnabled(false);
+        jToolBar1.add(negrita_btn);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -70,31 +70,31 @@ public class editorDeTexto extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(7, 0));
         jToolBar1.add(jSeparator1);
 
-        jButton2.setMaximumSize(new java.awt.Dimension(10, 8));
-        jButton2.setMinimumSize(new java.awt.Dimension(10, 8));
-        jButton2.setPreferredSize(new java.awt.Dimension(10, 8));
-        jToolBar1.add(jButton2);
+        delado_btn.setMaximumSize(new java.awt.Dimension(10, 8));
+        delado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
+        delado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        jToolBar1.add(delado_btn);
 
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setMaximumSize(new java.awt.Dimension(10, 8));
-        jButton3.setMinimumSize(new java.awt.Dimension(10, 8));
-        jButton3.setPreferredSize(new java.awt.Dimension(10, 8));
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        subrayado_btn.setFocusable(false);
+        subrayado_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        subrayado_btn.setMaximumSize(new java.awt.Dimension(10, 8));
+        subrayado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
+        subrayado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        subrayado_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(subrayado_btn);
 
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setMaximumSize(new java.awt.Dimension(10, 8));
-        jButton4.setMinimumSize(new java.awt.Dimension(10, 8));
-        jButton4.setPreferredSize(new java.awt.Dimension(10, 8));
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton4);
+        resaltador_btn.setFocusable(false);
+        resaltador_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        resaltador_btn.setMaximumSize(new java.awt.Dimension(10, 8));
+        resaltador_btn.setMinimumSize(new java.awt.Dimension(10, 8));
+        resaltador_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        resaltador_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(resaltador_btn);
         jToolBar1.add(jSeparator2);
 
-        jButton5.setMaximumSize(new java.awt.Dimension(76, 11));
-        jButton5.setMinimumSize(new java.awt.Dimension(76, 11));
-        jButton5.setPreferredSize(new java.awt.Dimension(76, 11));
+        colorletra_btn.setMaximumSize(new java.awt.Dimension(76, 11));
+        colorletra_btn.setMinimumSize(new java.awt.Dimension(76, 11));
+        colorletra_btn.setPreferredSize(new java.awt.Dimension(76, 11));
 
         jToolBar2.setRollover(true);
 
@@ -106,13 +106,13 @@ public class editorDeTexto extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(colorletra_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(guardararch_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(abrirarch_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
@@ -125,12 +125,12 @@ public class editorDeTexto extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(colorletra_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(abrirarch_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(guardararch_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,15 +176,12 @@ public class editorDeTexto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton abrirarch_btn;
+    private javax.swing.JButton colorletra_btn;
+    private javax.swing.JComboBox<String> combo_tamaño;
+    private javax.swing.JComboBox<String> combo_tipodeletra;
+    private javax.swing.JButton delado_btn;
+    private javax.swing.JButton guardararch_btn;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -192,5 +189,8 @@ public class editorDeTexto extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JButton negrita_btn;
+    private javax.swing.JButton resaltador_btn;
+    private javax.swing.JButton subrayado_btn;
     // End of variables declaration//GEN-END:variables
 }
