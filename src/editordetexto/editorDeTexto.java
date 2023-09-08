@@ -6,8 +6,17 @@ package editordetexto;
 
 import java.awt.Color;
 import java.awt.GraphicsEnvironment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -74,9 +83,19 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
+        combo_tipodeletra.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_tipodeletraItemStateChanged(evt);
+            }
+        });
         jToolBar1.add(combo_tipodeletra);
 
         combo_tamaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12", "18", "24", "36", "48", "60", "72" }));
+        combo_tamaño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_tamañoActionPerformed(evt);
+            }
+        });
         jToolBar1.add(combo_tamaño);
 
         negrita_btn.setMaximumSize(new java.awt.Dimension(10, 8));
@@ -144,6 +163,18 @@ public class editorDeTexto extends javax.swing.JFrame {
         });
 
         jToolBar2.setRollover(true);
+
+        abrirarch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirarch_btnMouseClicked(evt);
+            }
+        });
+
+        guardararch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardararch_btnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,6 +296,110 @@ public class editorDeTexto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_subrayado_btnMouseClicked
+
+    private void combo_tamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tamañoActionPerformed
+        // TODO add your handling code here:
+        StyleConstants.setFontSize(estilo, Integer.parseInt(combo_tamaño.getSelectedItem().toString()));
+        doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                tp_texto.getStyle("miEstilo"),
+                true);
+    }//GEN-LAST:event_combo_tamañoActionPerformed
+
+    private void combo_tipodeletraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_tipodeletraItemStateChanged
+        // TODO add your handling code here:
+        StyleConstants.setFontFamily(estilo, combo_tipodeletra.getSelectedItem().toString());
+        doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                tp_texto.getStyle("miEstilo"),
+                true);
+    }//GEN-LAST:event_combo_tipodeletraItemStateChanged
+
+    private void guardararch_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardararch_btnMouseClicked
+        // TODO add your handling code here:
+        
+        JFileChooser jfc = new JFileChooser();
+                    if (tipo.equals("Administrador")) {
+            jfc.setCurrentDirectory(new File("Z"));
+        } else {
+            jfc.setCurrentDirectory(new File("Z/"+nombre));
+        }
+        FileNameExtensionFilter filtro
+                = new FileNameExtensionFilter(
+                        "Text file", "txt");
+        jfc.setFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(this);
+
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            try {
+
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals(
+                        "Text file")) {
+                    fichero
+                            = new File(jfc.getSelectedFile().getPath() + ".txt");
+                } else {
+                    fichero = jfc.getSelectedFile();
+                }
+
+                fw = new FileOutputStream(fichero);
+                bw = new ObjectOutputStream(fw);
+                Documento d = new Documento(tp_texto, doc, estilo);
+                bw.writeObject(d);
+                bw.flush();
+
+                JOptionPane.showMessageDialog(this,
+                        "Archivo guardado exitosamente");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }//fin IF
+        try {
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_guardararch_btnMouseClicked
+
+    private void abrirarch_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abrirarch_btnMouseClicked
+        // TODO add your handling code here:
+         File fichero = null;
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        try {
+            JFileChooser jfc = new JFileChooser();
+            if (tipo.equals("Administrador")) {
+            jfc.setCurrentDirectory(new File("Z"));
+        } else {
+            jfc.setCurrentDirectory(new File("Z/"+nombre));
+        }
+            FileNameExtensionFilter filtro= new FileNameExtensionFilter("text file", "txt");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                entrada = new FileInputStream(fichero);
+                objeto = new ObjectInputStream(entrada);
+                tp_texto.setText("");
+                Documento temp = (Documento) objeto.readObject();
+                tp_texto.setText(((Documento) temp).getPanel().getText());
+                tp_texto.setDocument(((Documento) temp).getDoc());
+
+            } 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            objeto.close();
+            entrada.close();
+        } catch (IOException ex) {
+        } 
+    }//GEN-LAST:event_abrirarch_btnMouseClicked
 
     /**
      * @param args the command line arguments
