@@ -26,15 +26,16 @@ import javax.swing.text.StyledDocument;
  * @author fampa
  */
 public class editorDeTexto extends javax.swing.JFrame {
+
     public static String tipo;
-   public static String nombre;
+    public static String nombre;
 
     /**
      * Creates new form editorDeTexto
      */
     public editorDeTexto() {
         initComponents();
-        
+
         doc = tp_texto.getStyledDocument();
         estilo = tp_texto.addStyle("miEstilo", null);
         tipo = "----";
@@ -46,8 +47,8 @@ public class editorDeTexto extends javax.swing.JFrame {
             modelo.addElement(fontNames[i]);
         }
         combo_tipodeletra.setModel(modelo);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);  
-       
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
     }
 
     /**
@@ -75,12 +76,17 @@ public class editorDeTexto extends javax.swing.JFrame {
         jToolBar2 = new javax.swing.JToolBar();
         abrirarch_btn = new javax.swing.JButton();
         guardararch_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setViewportView(tp_texto);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 121, 909, 494));
 
         jToolBar1.setRollover(true);
 
@@ -154,6 +160,9 @@ public class editorDeTexto extends javax.swing.JFrame {
         jToolBar1.add(resaltador_btn);
         jToolBar1.add(jSeparator2);
 
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 43, 667, 66));
+
+        colorletra_btn.setText("Color");
         colorletra_btn.setMaximumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setMinimumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setPreferredSize(new java.awt.Dimension(76, 11));
@@ -162,66 +171,41 @@ public class editorDeTexto extends javax.swing.JFrame {
                 colorletra_btnMouseClicked(evt);
             }
         });
+        getContentPane().add(colorletra_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 43, 84, 31));
 
         jToolBar2.setRollover(true);
+        getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 43, 90, 40));
 
+        abrirarch_btn.setText("Abrir Archivo");
         abrirarch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 abrirarch_btnMouseClicked(evt);
             }
         });
+        getContentPane().add(abrirarch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 43, 124, 33));
 
+        guardararch_btn.setText("Guardar");
         guardararch_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 guardararch_btnMouseClicked(evt);
             }
         });
+        getContentPane().add(guardararch_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 82, 124, 27));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(colorletra_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guardararch_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(abrirarch_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 909, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(colorletra_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(abrirarch_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guardararch_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Size");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 37, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Font");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 37, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void resaltador_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resaltador_btnMouseClicked
         // TODO add your handling code here:
-         try {
+        try {
 
             StyleConstants.setBackground(estilo,
                     JColorChooser.showDialog(this,
@@ -239,7 +223,7 @@ public class editorDeTexto extends javax.swing.JFrame {
 
     private void colorletra_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorletra_btnMouseClicked
         // TODO add your handling code here:
-         try {
+        try {
 
             StyleConstants.setForeground(estilo,
                     JColorChooser.showDialog(this,
@@ -286,7 +270,7 @@ public class editorDeTexto extends javax.swing.JFrame {
 
     private void subrayado_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subrayado_btnMouseClicked
         // TODO add your handling code here:
-         try {
+        try {
             StyleConstants.setUnderline(estilo, true);
 
             doc.setCharacterAttributes(tp_texto.getSelectionStart(),
@@ -317,30 +301,24 @@ public class editorDeTexto extends javax.swing.JFrame {
     }//GEN-LAST:event_combo_tipodeletraItemStateChanged
 
     private void guardararch_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardararch_btnMouseClicked
-        // TODO add your handling code here:
-        
         JFileChooser jfc = new JFileChooser();
-                    if (tipo.equals("Administrador")) {
+        if (tipo.equals("Administrador")) {
             jfc.setCurrentDirectory(new File("Z"));
         } else {
-            jfc.setCurrentDirectory(new File("Z/"+nombre));
+            jfc.setCurrentDirectory(new File("Z/" + nombre));
         }
-        FileNameExtensionFilter filtro
-                = new FileNameExtensionFilter(
-                        "Text file", "txt");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Text file", "txt");
         jfc.setFileFilter(filtro);
         int seleccion = jfc.showSaveDialog(this);
 
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            try {
 
+        try {
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
                 File fichero = null;
-                if (jfc.getFileFilter().getDescription().equals(
-                        "Text file")) {
-                    fichero
-                            = new File(jfc.getSelectedFile().getPath() + ".txt");
+                if (jfc.getFileFilter().getDescription().equals("Text file")) {
+                    fichero = new File(jfc.getSelectedFile().getPath() + ".txt");
                 } else {
                     fichero = jfc.getSelectedFile();
                 }
@@ -351,34 +329,37 @@ public class editorDeTexto extends javax.swing.JFrame {
                 bw.writeObject(d);
                 bw.flush();
 
-                JOptionPane.showMessageDialog(this,
-                        "Archivo guardado exitosamente");
-
-            } catch (Exception e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
             }
-
-        }//fin IF
-        try {
-            bw.close();
-            fw.close();
-        } catch (IOException ex) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }//GEN-LAST:event_guardararch_btnMouseClicked
 
     private void abrirarch_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abrirarch_btnMouseClicked
         // TODO add your handling code here:
-         File fichero = null;
+        File fichero = null;
         FileInputStream entrada = null;
         ObjectInputStream objeto = null;
         try {
             JFileChooser jfc = new JFileChooser();
             if (tipo.equals("Administrador")) {
-            jfc.setCurrentDirectory(new File("Z"));
-        } else {
-            jfc.setCurrentDirectory(new File("Z/"+nombre));
-        }
-            FileNameExtensionFilter filtro= new FileNameExtensionFilter("text file", "txt");
+                jfc.setCurrentDirectory(new File("Z"));
+            } else {
+                jfc.setCurrentDirectory(new File("Z/" + nombre));
+            }
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("text file", "txt");
             jfc.setFileFilter(filtro);
             int seleccion = jfc.showOpenDialog(this);
             if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -390,16 +371,22 @@ public class editorDeTexto extends javax.swing.JFrame {
                 tp_texto.setText(((Documento) temp).getPanel().getText());
                 tp_texto.setDocument(((Documento) temp).getDoc());
 
-            } 
-
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "El archivo no existe.");
+        } finally {
+            try {
+                if (objeto != null) {
+                    objeto.close();
+                }
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        try {
-            objeto.close();
-            entrada.close();
-        } catch (IOException ex) {
-        } 
+
     }//GEN-LAST:event_abrirarch_btnMouseClicked
 
     /**
@@ -444,6 +431,8 @@ public class editorDeTexto extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combo_tipodeletra;
     private javax.swing.JButton delado_btn;
     private javax.swing.JButton guardararch_btn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -460,4 +449,3 @@ public class editorDeTexto extends javax.swing.JFrame {
     Style estilo;
 
 }
-
