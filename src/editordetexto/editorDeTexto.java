@@ -4,17 +4,40 @@
  */
 package editordetexto;
 
+import java.awt.Color;
+import java.awt.GraphicsEnvironment;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JColorChooser;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
 /**
  *
  * @author fampa
  */
 public class editorDeTexto extends javax.swing.JFrame {
+    public static String tipo;
+   public static String nombre;
 
     /**
      * Creates new form editorDeTexto
      */
     public editorDeTexto() {
         initComponents();
+        
+        doc = tp_texto.getStyledDocument();
+        estilo = tp_texto.addStyle("miEstilo", null);
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) combo_tipodeletra.getModel();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String fontNames[] = ge.getAvailableFontFamilyNames();
+        for (int i = 0; i < fontNames.length; i++) {
+            modelo.addElement(fontNames[i]);
+        }
+        combo_tipodeletra.setModel(modelo);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);  
+       
     }
 
     /**
@@ -28,7 +51,7 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        tp_texto = new javax.swing.JTextPane();
         jToolBar1 = new javax.swing.JToolBar();
         combo_tipodeletra = new javax.swing.JComboBox<>();
         combo_tamaño = new javax.swing.JComboBox<>();
@@ -47,8 +70,7 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(tp_texto);
 
         jToolBar1.setRollover(true);
 
@@ -61,6 +83,11 @@ public class editorDeTexto extends javax.swing.JFrame {
         negrita_btn.setMinimumSize(new java.awt.Dimension(10, 8));
         negrita_btn.setPreferredSize(new java.awt.Dimension(10, 8));
         negrita_btn.setRequestFocusEnabled(false);
+        negrita_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                negrita_btnMouseClicked(evt);
+            }
+        });
         jToolBar1.add(negrita_btn);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -73,6 +100,11 @@ public class editorDeTexto extends javax.swing.JFrame {
         delado_btn.setMaximumSize(new java.awt.Dimension(10, 8));
         delado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
         delado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
+        delado_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                delado_btnMouseClicked(evt);
+            }
+        });
         jToolBar1.add(delado_btn);
 
         subrayado_btn.setFocusable(false);
@@ -81,6 +113,11 @@ public class editorDeTexto extends javax.swing.JFrame {
         subrayado_btn.setMinimumSize(new java.awt.Dimension(10, 8));
         subrayado_btn.setPreferredSize(new java.awt.Dimension(10, 8));
         subrayado_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        subrayado_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                subrayado_btnMouseClicked(evt);
+            }
+        });
         jToolBar1.add(subrayado_btn);
 
         resaltador_btn.setFocusable(false);
@@ -89,12 +126,22 @@ public class editorDeTexto extends javax.swing.JFrame {
         resaltador_btn.setMinimumSize(new java.awt.Dimension(10, 8));
         resaltador_btn.setPreferredSize(new java.awt.Dimension(10, 8));
         resaltador_btn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        resaltador_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resaltador_btnMouseClicked(evt);
+            }
+        });
         jToolBar1.add(resaltador_btn);
         jToolBar1.add(jSeparator2);
 
         colorletra_btn.setMaximumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setMinimumSize(new java.awt.Dimension(76, 11));
         colorletra_btn.setPreferredSize(new java.awt.Dimension(76, 11));
+        colorletra_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                colorletra_btnMouseClicked(evt);
+            }
+        });
 
         jToolBar2.setRollover(true);
 
@@ -139,6 +186,85 @@ public class editorDeTexto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void resaltador_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resaltador_btnMouseClicked
+        // TODO add your handling code here:
+         try {
+
+            StyleConstants.setBackground(estilo,
+                    JColorChooser.showDialog(this,
+                            "Seleccione Color", Color.yellow)
+            );
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_resaltador_btnMouseClicked
+
+    private void colorletra_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorletra_btnMouseClicked
+        // TODO add your handling code here:
+         try {
+
+            StyleConstants.setForeground(estilo,
+                    JColorChooser.showDialog(this,
+                            "Seleccione Color", Color.red)
+            );
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_colorletra_btnMouseClicked
+
+    private void negrita_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_negrita_btnMouseClicked
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setBold(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_negrita_btnMouseClicked
+
+    private void delado_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delado_btnMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setItalic(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_delado_btnMouseClicked
+
+    private void subrayado_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subrayado_btnMouseClicked
+        // TODO add your handling code here:
+         try {
+            StyleConstants.setUnderline(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_subrayado_btnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,12 +311,17 @@ public class editorDeTexto extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton negrita_btn;
     private javax.swing.JButton resaltador_btn;
     private javax.swing.JButton subrayado_btn;
+    private javax.swing.JTextPane tp_texto;
     // End of variables declaration//GEN-END:variables
+
+    StyledDocument doc;
+    Style estilo;
+
 }
+
