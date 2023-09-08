@@ -37,6 +37,7 @@ public class editorDeTexto extends javax.swing.JFrame {
         
         doc = tp_texto.getStyledDocument();
         estilo = tp_texto.addStyle("miEstilo", null);
+        tipo = "----";
 
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) combo_tipodeletra.getModel();
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
